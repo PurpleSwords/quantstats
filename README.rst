@@ -234,6 +234,14 @@ Install using ``pip``:
     $ pip install quantstats --upgrade --no-cache-dir
 
 
+# Add the following lines
+To migrate from the official library to this fork, use:
+
+.. code:: bash
+
+    $ pip install --upgrade git+https://github.com/PurpleSwords/quantstats.git@main
+
+
 Install using ``conda``:
 
 .. code:: bash

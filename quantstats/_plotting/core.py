@@ -1010,17 +1010,13 @@ def plot_distribution(
 
     apply_fnc = _stats.comp if compounded else _np.sum
 
-    port["Weekly"] = port["Daily"].resample("W-MON").apply(apply_fnc)
-    port["Weekly"].ffill(inplace=True)
+    port["Weekly"] = port["Daily"].resample("W-MON").apply(apply_fnc).ffill()
 
-    port["Monthly"] = port["Daily"].resample("ME").apply(apply_fnc)
-    port["Monthly"].ffill(inplace=True)
+    port["Monthly"] = port["Daily"].resample("ME").apply(apply_fnc).ffill()
 
-    port["Quarterly"] = port["Daily"].resample("QE").apply(apply_fnc)
-    port["Quarterly"].ffill(inplace=True)
+    port["Quarterly"] = port["Daily"].resample("QE").apply(apply_fnc).ffill()
 
-    port["Yearly"] = port["Daily"].resample("YE").apply(apply_fnc)
-    port["Yearly"].ffill(inplace=True)
+    port["Yearly"] = port["Daily"].resample("YE").apply(apply_fnc).ffill()
 
     fig, ax = _plt.subplots(figsize=figsize)
     ax.spines["top"].set_visible(False)
